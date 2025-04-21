@@ -31,7 +31,7 @@ export default function HeroSection() {
       </div>
       <div className="hero--section--img">
         <img
-          src="./img/hero_img.png"
+          src="./img/hero_img.jpeg"
           alt="Hero Section"
         />
       </div>
