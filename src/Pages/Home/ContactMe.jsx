@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE, EMAILJS_API_KEY } from "../../config";
+
 
 export default function ContactMe() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE, form.current, {
+        publicKey: EMAILJS_API_KEY,
+      })
+      .then(
+        () => {
+          alert("Your message has been sent successfully! I will come back to you as soon as possible");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send message, please try again later. If the problem persists, contact me at giunio@avenueitconsulting.onmicrosoft.com");
+        },
+      );
+  };
+
   return (
     <section
       id="Contact"
@@ -14,7 +37,7 @@ export default function ContactMe() {
           adipisicing elit. In, odit.
         </p>
       </div>
-      <form className="contact--form--container">
+      <form className="contact--form--container" ref={form} onSubmit={sendEmail}>
         <div className="container">
           <label
             htmlFor="first-name"

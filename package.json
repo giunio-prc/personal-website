@@ -6,6 +6,7 @@
     "node": ">=12.x"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
