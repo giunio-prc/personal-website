@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE, EMAILJS_API_KEY } from "../../config";
-
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE,
+  EMAILJS_API_KEY,
+} from '../../config';
 
 export default function ContactMe() {
   const form = useRef();
@@ -10,25 +13,34 @@ export default function ContactMe() {
     e.preventDefault();
 
     emailjs
-      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE, form.current, {
-        publicKey: EMAILJS_API_KEY,
-      })
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE,
+        form.current,
+        {
+          publicKey: EMAILJS_API_KEY,
+        }
+      )
       .then(
         () => {
-          alert("Your message has been sent successfully! I will come back to you as soon as possible");
+          alert(
+            `Your message has been sent successfully! 
+            I will come back to you as soon as possible`          );
         },
         (error) => {
           console.log(error.text);
-          alert("Failed to send message, please try again later. If the problem persists, contact me at giunio@avenueitconsulting.onmicrosoft.com");
-        },
+          alert(
+            `Failed to send message, please try again later. 
+            If the problem persists, 
+            contact me at 
+            giunio@avenueitconsulting.onmicrosoft.com`
+          );
+        }
       );
   };
 
   return (
-    <section
-      id="Contact"
-      className="contact--section"
-    >
+    <section id="Contact" className="contact--section">
       <div>
         <p className="sub--title">Get In Touch</p>
         <h2>Contact Me</h2>
@@ -37,15 +49,17 @@ export default function ContactMe() {
           adipisicing elit. In, odit.
         </p>
       </div>
-      <form className="contact--form--container" ref={form} onSubmit={sendEmail}>
+      <form
+        className="contact--form--container"
+        ref={form}
+        onSubmit={sendEmail}
+      >
         <div className="container">
           <label
             htmlFor="first-name"
             className="contact--label"
           >
-            <span className="text-md">
-              First Name
-            </span>
+            <span className="text-md">First Name</span>
             <input
               type="text"
               className="contact--input text-md"
@@ -58,9 +72,7 @@ export default function ContactMe() {
             htmlFor="last-name"
             className="contact--label"
           >
-            <span className="text-md">
-              Last Name
-            </span>
+            <span className="text-md">Last Name</span>
             <input
               type="text"
               className="contact--input text-md"
@@ -69,10 +81,7 @@ export default function ContactMe() {
               required
             />
           </label>
-          <label
-            htmlFor="email"
-            className="contact--label"
-          >
+          <label htmlFor="email" className="contact--label">
             <span className="text-md">Email</span>
             <input
               type="email"
@@ -86,9 +95,7 @@ export default function ContactMe() {
             htmlFor="phone-number"
             className="contact--label"
           >
-            <span className="text-md">
-              phone-number
-            </span>
+            <span className="text-md">phone-number</span>
             <input
               type="number"
               className="contact--input text-md"
@@ -102,9 +109,7 @@ export default function ContactMe() {
           htmlFor="choode-topic"
           className="contact--label"
         >
-          <span className="text-md">
-            Choose a topic
-          </span>
+          <span className="text-md">Choose a topic</span>
           <select
             id="choose-topic"
             className="contact--input text-md"
@@ -115,10 +120,7 @@ export default function ContactMe() {
             <option>Item 3</option>
           </select>
         </label>
-        <label
-          htmlFor="message"
-          className="contact--label"
-        >
+        <label htmlFor="message" className="contact--label">
           <span className="text-md">Message</span>
           <textarea
             className="contact--input text-md"

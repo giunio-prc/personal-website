@@ -1,15 +1,12 @@
-import { Link } from "react-scroll";
-import React from "react";
+import { Link } from 'react-scroll';
+import React from 'react';
 
 function Footer() {
   return (
     <footer className="footer--container">
       <div className="footer--link--container">
         <div>
-          <img
-            src="./img/logo.svg"
-            alt="Logoipsum"
-          />
+          <img src="./img/logo.svg" alt="Logoipsum" />
         </div>
         <div className="footer--items">
           <ul>
@@ -175,9 +172,7 @@ function Footer() {
       </div>
       <hr className="divider" />
       <div className="footer--content--container">
-        <p className="footer--content">
-          Copyright © 2025
-        </p>
+        <p className="footer--content">Copyright © 2025</p>
         <div className="footer--social--icon">
           <ul>
             <li>

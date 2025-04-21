@@ -1,3 +1,6 @@
-export const EMAILJS_API_KEY = process.env.REACT_APP_EMAILJS_API_KEY;
-export const EMAILJS_TEMPLATE = process.env.REACT_APP_EMAILJS_TEMPLATE;
-export const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+export const EMAILJS_API_KEY =
+  process.env.REACT_APP_EMAILJS_API_KEY;
+export const EMAILJS_TEMPLATE =
+  process.env.REACT_APP_EMAILJS_TEMPLATE;
+export const EMAILJS_SERVICE_ID =
+  process.env.REACT_APP_EMAILJS_SERVICE_ID;
