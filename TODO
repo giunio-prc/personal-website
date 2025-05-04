@@ -1,1 +1,6 @@
 List of TODOs
+
+- add tooltip to accepting the term and conditions for contact form
+- fix 'Get in touch' dangling button on the contact form page
+- generate proper logo and favicon for the website
+- setup production deployment configuration
