@@ -1,30 +1,28 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import {
-  EMAILJS_SERVICE_ID,
-  EMAILJS_TEMPLATE,
-  EMAILJS_AUTOREPLY_TEMPLATE,
-  EMAILJS_API_KEY,
-} from '../../config';
 
 export default function ContactMe() {
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE;
+  const AUTOREPLY_TEMPLATE = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE;
+  const API_KEY = import.meta.env.VITE_EMAILJS_API_KEY;
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE, form.current, {
-        publicKey: EMAILJS_API_KEY,
+      .sendForm(SERVICE_ID, TEMPLATE, form.current as HTMLFormElement, {
+        publicKey: API_KEY,
       })
       .then(
         () => {
           emailjs.sendForm(
-            EMAILJS_SERVICE_ID,
-            EMAILJS_AUTOREPLY_TEMPLATE,
-            form.current,
+            SERVICE_ID,
+            AUTOREPLY_TEMPLATE,
+            form.current as HTMLFormElement,
             {
-              publicKey: EMAILJS_API_KEY,
+              publicKey: API_KEY,
             }
           );
           alert(
@@ -113,7 +111,7 @@ giunio@avenueitconsulting.onmicrosoft.com`
             className="contact--input text-md"
             id="message"
             name="message"
-            rows="8"
+            rows={8}
             placeholder="Type your message..."
           />
         </label>
