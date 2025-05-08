@@ -1,16 +1,14 @@
-import { useRef } from 'react';
-import { SendEmail } from './EmailSender';
-
-function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const form = e.currentTarget;
-  if (form) {
-    SendEmail(form);
-  }
-}
+import { useContext } from 'react';
+import { UseCaseContext } from '../../useCaseContext';
 
 export default function ContactMe() {
-  const form = useRef(null);
+  const emailSender = useContext(UseCaseContext).emailSender;
+
+  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    await emailSender.submitForm(form);
+  };
 
   return (
     <section id="Contact" className="contact--section">
@@ -21,11 +19,7 @@ export default function ContactMe() {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, odit.
         </p>
       </div>
-      <form
-        className="contact--form--container"
-        ref={form}
-        onSubmit={handleOnSubmit}
-      >
+      <form className="contact--form--container" onSubmit={handleOnSubmit}>
         <div className="container">
           <label htmlFor="first-name" className="contact--label">
             <span className="text-md">First Name</span>
