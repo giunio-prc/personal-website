@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
 
 function Navbar() {
   const [navActive, setNavActive] = useState(false);
@@ -19,10 +19,10 @@ function Navbar() {
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -33,19 +33,19 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${navActive ? "active" : ""}`}>
+    <nav className={`navbar ${navActive ? 'active' : ''}`}>
       <div>
         <img src="./img/logo.svg" alt="Logoipsum" />
       </div>
       <a
-        className={`nav__hamburger ${navActive ? "active" : ""}`}
+        className={`nav__hamburger ${navActive ? 'active' : ''}`}
         onClick={toggleNav}
       >
         <span className="nav__hamburger__line"></span>
         <span className="nav__hamburger__line"></span>
         <span className="nav__hamburger__line"></span>
       </a>
-      <div className={`navbar--items ${navActive ? "active" : ""}`}>
+      <div className={`navbar--items ${navActive ? 'active' : ''}`}>
         <ul>
           <li>
             <Link
