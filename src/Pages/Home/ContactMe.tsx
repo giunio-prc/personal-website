@@ -1,45 +1,16 @@
 import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { SendEmail } from './EmailSender';
+
+function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  if (form) {
+    SendEmail(form);
+  }
+}
 
 export default function ContactMe() {
-  const form = useRef<HTMLFormElement | null>(null);
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE;
-  const AUTOREPLY_TEMPLATE = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE;
-  const API_KEY = import.meta.env.VITE_EMAILJS_API_KEY;
-
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE, form.current as HTMLFormElement, {
-        publicKey: API_KEY,
-      })
-      .then(
-        () => {
-          emailjs.sendForm(
-            SERVICE_ID,
-            AUTOREPLY_TEMPLATE,
-            form.current as HTMLFormElement,
-            {
-              publicKey: API_KEY,
-            }
-          );
-          alert(
-            `Your message has been sent successfully! 
-I will come back to you as soon as possible`
-          );
-        },
-        (error) => {
-          console.log(error.text);
-          alert(
-            `Failed to send message, please try again later. 
-If the problem persists, contact me at 
-giunio@avenueitconsulting.onmicrosoft.com`
-          );
-        }
-      );
-  };
+  const form = useRef(null);
 
   return (
     <section id="Contact" className="contact--section">
@@ -53,7 +24,7 @@ giunio@avenueitconsulting.onmicrosoft.com`
       <form
         className="contact--form--container"
         ref={form}
-        onSubmit={sendEmail}
+        onSubmit={handleOnSubmit}
       >
         <div className="container">
           <label htmlFor="first-name" className="contact--label">
