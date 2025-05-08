@@ -31,7 +31,8 @@
       "src": "./img/placeholder-image.png",
       "title": "Ahuse",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "link": "View In Github"
+      "link": "View in GitHub",
+      "url": "https://github.com/giunio-prc/bakerpy"
     },
     {
       "id": "2",
