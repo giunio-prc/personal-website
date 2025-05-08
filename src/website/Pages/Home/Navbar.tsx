@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { HashLink } from 'react-router-hash-link';
 
 function Navbar() {
   const [navActive, setNavActive] = useState(false);
@@ -48,75 +48,55 @@ function Navbar() {
       <div className={`navbar--items ${navActive ? 'active' : ''}`}>
         <ul>
           <li>
-            <Link
+            <HashLink
               onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
               smooth={true}
-              offset={-70}
-              duration={500}
-              to="heroSection"
+              to="/#heroSection"
               className="navbar--content"
             >
               Home
-            </Link>
+            </HashLink>
           </li>
           <li>
-            <Link
+            <HashLink
               onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
               smooth={true}
-              offset={-70}
-              duration={500}
-              to="MyPortfolio"
+              to="/#MyPortfolio"
               className="navbar--content"
             >
               Portfolio
-            </Link>
+            </HashLink>
           </li>
           <li>
-            <Link
+            <HashLink
               onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
               smooth={true}
-              offset={-70}
-              duration={500}
-              to="AboutMe"
+              to="/#AboutMe"
               className="navbar--content"
             >
               About Me
-            </Link>
+            </HashLink>
           </li>
           <li>
-            <Link
+            <HashLink
               onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
               smooth={true}
-              offset={-70}
-              duration={500}
-              to="testimonial"
+              to="/#testimonial"
               className="navbar--content"
             >
               Testimonials
-            </Link>
+            </HashLink>
           </li>
         </ul>
       </div>
-      <Link
+      <HashLink
         onClick={closeMenu}
-        activeClass="navbar--active-content"
-        spy={true}
         smooth={true}
-        offset={-70}
-        duration={500}
-        to="Contact"
+        to="/#Contact"
         className="btn btn-outline-primary"
       >
         Contact Me
-      </Link>
+      </HashLink>
     </nav>
   );
 }
