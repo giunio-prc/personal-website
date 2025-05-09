@@ -1,5 +1,8 @@
 import { useContext } from 'react';
 import { UseCaseContext } from '../../useCaseContext';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import { termsAndConditions } from '../../../data/text';
 
 export default function ContactMe() {
   const emailSender = useContext(UseCaseContext).emailSender;
@@ -81,7 +84,9 @@ export default function ContactMe() {
           />
         </label>
         <label htmlFor="checkboc" className="checkbox--label">
-          <input type="checkbox" required name="checkbox" id="checkbox" />
+          <Tippy content={termsAndConditions} placement="top">
+            <input type="checkbox" required name="checkbox" id="checkbox" />
+          </Tippy>
           <span className="text-sm">I accept the terms</span>
         </label>
         <div>
